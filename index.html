@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMIN BAABOL | Security Data Architect</title>
+<meta name="description" content="Security Data Architect & Data Platform Engineer. 5+ years building secure enterprise data platforms, compliance automation, and AI-powered analytics for Fortune 500 organizations.">
+<meta property="og:title" content="AMIN BAABOL | Security Data Architect">
+<meta property="og:description" content="I build secure enterprise data platforms, compliance automation, and AI-powered analytics for Fortune 500 organizations.">
+<meta property="og:type" content="website">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https:;">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%231e1e1e'/><text x='50' y='68' font-family='Arial' font-size='60' font-weight='bold' fill='%2300cbe6' text-anchor='middle'>A</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg-dark: #1e1e1e;
+        --bg-card: #272727;
+        --bg-card-hover: #2f2f2f;
+        --bg-elevated: #333333;
+        --accent: #00cbe6;
+        --accent-dim: rgba(0, 203, 230, 0.15);
+        --white: #ffffff;
+        --text: #d4d4d4;
+        --text-muted: #8a8a8a;
+        --text-faint: #5a5a5a;
+        --border: #3a3a3a;
+        --border-light: #2e2e2e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: 'Space Grotesk', sans-serif;
+        background: var(--bg-dark);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+        position: fixed; top: 0; width: 100%; z-index: 100;
+        background: rgba(30,30,30,0.92); backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border-light);
+        padding: 16px 0;
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.9rem; font-weight: 700;
+        letter-spacing: -0.5px; color: var(--white);
+        text-transform: uppercase;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+        font-family: 'JetBrains Mono', monospace;
+        color: var(--text-muted); text-decoration: none;
+        font-size: 0.7rem; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 1.5px;
+        transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .hamburger {
+        display: none; flex-direction: column; gap: 4px;
+        cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .hamburger span { width: 20px; height: 1.5px; background: var(--white); }
+
+    /* HERO */
+    .hero {
+        padding: 160px 0 80px;
+        position: relative; overflow: hidden;
+    }
+    .hero::before {
+        content: ''; position: absolute;
+        top: -80px; right: -120px;
+        width: 450px; height: 450px;
+        background: radial-gradient(circle, rgba(0,203,230,0.06) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    .hero::after {
+        content: ''; position: absolute;
+        bottom: -40px; left: -80px;
+        width: 300px; height: 300px;
+        background: radial-gradient(circle, rgba(0,203,230,0.04) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    /* Organic blob shapes */
+    .blob {
+        position: absolute; border-radius: 50%;
+        pointer-events: none; opacity: 0.5;
+    }
+    .blob-1 {
+        top: 100px; right: 60px;
+        width: 180px; height: 180px;
+        background: var(--bg-card);
+        border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+    }
+    .blob-2 {
+        top: 200px; right: 180px;
+        width: 100px; height: 100px;
+        background: var(--bg-elevated);
+        border-radius: 40% 60% 30% 70% / 60% 40% 50% 50%;
+    }
+    .blob-3 {
+        bottom: 20px; left: 50px;
+        width: 120px; height: 120px;
+        background: var(--bg-card);
+        border-radius: 50% 60% 40% 70% / 40% 50% 60% 50%;
+    }
+
+    .hero-status {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 6px 14px; background: var(--bg-card);
+        border-left: 2px solid var(--accent);
+        margin-bottom: 28px; position: relative; z-index: 1;
+    }
+    .hero-status span {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.65rem; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 2px;
+        color: var(--text-muted);
+    }
+    .hero-status .dot {
+        width: 6px; height: 6px; background: #22c55e;
+        border-radius: 50%; animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero h1 {
+        font-size: clamp(2.8rem, 6vw, 4rem);
+        font-weight: 700; line-height: 1.05;
+        letter-spacing: -2px; color: var(--white);
+        margin-bottom: 20px; max-width: 14ch;
+        position: relative; z-index: 1;
+    }
+    .hero h1 .accent { color: var(--accent); }
+    .hero-sub {
+        font-size: 1rem; color: var(--text-muted);
+        max-width: 440px; margin-bottom: 32px;
+        position: relative; z-index: 1;
+        line-height: 1.7;
+    }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        padding: 12px 28px; font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+        letter-spacing: 1.5px; text-decoration: none;
+        transition: all 0.25s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+        background: var(--accent); color: var(--bg-dark);
+    }
+    .btn-primary:hover { background: var(--white); }
+    .btn-secondary {
+        background: transparent; color: var(--white);
+        border: 1px solid var(--text-faint);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* STATS */
+    .stats-bar {
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 32px 0; background: var(--bg-card);
+    }
+    .stats-grid {
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    }
+    .stat-item {
+        padding-left: 20px;
+        border-left: 1px solid var(--border);
+    }
+    .stat-item:first-child { border-left: none; padding-left: 0; }
+    .stat-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 2px;
+        color: var(--text-faint); margin-bottom: 4px;
+    }
+    .stat-value {
+        font-size: 1.4rem; font-weight: 700;
+        color: var(--white); letter-spacing: -0.5px;
+    }
+    .stat-badge {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem; font-weight: 700;
+        color: var(--accent); margin-left: 6px;
+    }
+
+    /* SECTIONS */
+    section { padding: 80px 0; }
+    .section-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.65rem; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 2.5px;
+        color: var(--accent); margin-bottom: 8px;
+    }
+    .section-title {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 700; letter-spacing: -1px;
+        color: var(--white); margin-bottom: 12px;
+    }
+    .section-sub {
+        font-size: 0.92rem; color: var(--text-muted);
+        max-width: 500px; margin-bottom: 40px;
+    }
+
+    /* SERVICES */
+    .services-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .service-card {
+        padding: 0; position: relative;
+        background: var(--bg-card);
+        border: 1px solid var(--border-light);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow: hidden;
+    }
+    .service-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 203, 230, 0.08), 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .service-card-top {
+        padding: 28px 28px 0;
+        display: flex; align-items: center; justify-content: space-between;
+    }
+    .service-num {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem; font-weight: 700;
+        color: var(--accent); text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    .service-icon {
+        width: 36px; height: 36px; display: flex;
+        align-items: center; justify-content: center;
+        border: 1px solid var(--border);
+        transition: all 0.3s;
+    }
+    .service-card:hover .service-icon {
+        background: var(--accent); border-color: var(--accent);
+    }
+    .service-icon svg {
+        width: 16px; height: 16px;
+        stroke: var(--text-faint); stroke-width: 1.5;
+        fill: none; transition: stroke 0.3s;
+    }
+    .service-card:hover .service-icon svg { stroke: var(--bg-dark); }
+    .service-card-body { padding: 20px 28px 28px; }
+    .service-card h3 {
+        font-size: 1.05rem; font-weight: 600;
+        color: var(--white); margin-bottom: 10px;
+        letter-spacing: -0.3px;
+    }
+    .service-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
+    .service-tags {
+        display: flex; flex-wrap: wrap; gap: 6px;
+        margin-top: 16px; padding-top: 16px;
+        border-top: 1px solid var(--border-light);
+    }
+    .service-tag {
+        font-family: 'JetBrains Mono', monospace;
+        padding: 2px 8px; font-size: 0.6rem; font-weight: 500;
+        color: var(--text-faint); background: var(--bg-elevated);
+        transition: color 0.2s;
+    }
+    .service-card:hover .service-tag { color: var(--accent); }
+    .service-bar {
+        height: 2px; width: 0; background: var(--accent);
+        transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .service-card:hover .service-bar { width: 100%; }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 36px; }
+    .timeline::before {
+        content: ''; position: absolute;
+        left: 5px; top: 0; bottom: 0; width: 2px;
+        background: linear-gradient(to bottom, var(--accent), var(--accent), var(--border));
+    }
+    .tl-item {
+        position: relative; margin-bottom: 20px;
+        padding: 24px 28px; background: var(--bg-card);
+        border: 1px solid var(--border-light);
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .tl-item:hover {
+        border-color: rgba(0,203,230,0.3);
+        box-shadow: 0 4px 16px rgba(0,203,230,0.06);
+    }
+    .tl-item::before {
+        content: ''; position: absolute;
+        left: -36px; top: 28px;
+        width: 10px; height: 10px;
+        background: var(--accent);
+        border-radius: 50%;
+        border: 3px solid var(--bg-dark);
+        box-shadow: 0 0 0 2px var(--accent);
+    }
+    .tl-header {
+        display: flex; justify-content: space-between;
+        align-items: flex-start; flex-wrap: wrap;
+        gap: 8px; margin-bottom: 4px;
+    }
+    .tl-item h3 {
+        font-size: 1rem; font-weight: 600;
+        color: var(--white); letter-spacing: -0.2px;
+    }
+    .tl-date {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem; color: var(--accent);
+        font-weight: 500; white-space: nowrap;
+        text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .tl-company {
+        font-size: 0.85rem; color: var(--text-muted);
+        margin-bottom: 10px;
+    }
+    .tl-company strong { color: var(--accent); font-weight: 500; }
+    .tl-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .tl-tag {
+        font-family: 'JetBrains Mono', monospace;
+        padding: 3px 10px; background: var(--bg-elevated);
+        border: 1px solid var(--border);
+        font-size: 0.65rem; font-weight: 700;
+        color: var(--text-muted);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    }
+    .skill-group h3 {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 1.5px;
+        color: var(--text-muted); margin-bottom: 12px;
+        padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+        font-family: 'JetBrains Mono', monospace;
+        padding: 3px 10px; background: var(--bg-card);
+        border: 1px solid var(--border);
+        font-size: 0.7rem; font-weight: 500;
+        color: var(--text); transition: all 0.15s;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+
+    /* CREDENTIALS */
+    .creds-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .cred-card {
+        padding: 18px 20px; border: 1px solid var(--border-light);
+        background: var(--bg-card);
+        display: flex; align-items: flex-start; gap: 14px;
+        transition: border-color 0.15s;
+    }
+    .cred-card:hover { border-color: rgba(0,203,230,0.3); }
+    .cred-type {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.55rem; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 1px;
+        color: var(--accent); background: var(--accent-dim);
+        padding: 2px 8px; white-space: nowrap; flex-shrink: 0; margin-top: 1px;
+    }
+    .cred-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+    .cred-card p { font-size: 0.78rem; color: var(--text-faint); }
+
+    /* CONTACT */
+    .contact-section {
+        text-align: center; padding: 80px 0 100px;
+        border-top: 1px solid var(--border);
+        position: relative; overflow: hidden;
+    }
+    .contact-section::before {
+        content: ''; position: absolute;
+        top: 50%; left: 50%; transform: translate(-50%, -50%);
+        width: 500px; height: 500px;
+        background: radial-gradient(circle, rgba(0,203,230,0.04) 0%, transparent 60%);
+        border-radius: 50%; pointer-events: none;
+    }
+    .contact-section .section-sub { max-width: 440px; margin: 0 auto 32px; }
+    .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    /* FOOTER */
+    footer {
+        border-top: 1px solid var(--border);
+        padding: 20px 0; background: var(--bg-card);
+    }
+    footer .container {
+        display: flex; justify-content: space-between;
+        align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-status {
+        display: flex; align-items: center; gap: 6px;
+    }
+    .footer-status .dot {
+        width: 5px; height: 5px; background: #22c55e;
+        border-radius: 50%; animation: pulse 2s infinite;
+    }
+    .footer-status span {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem; color: var(--text-faint);
+        text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    footer .copy {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.6rem; color: var(--text-faint);
+    }
+
+    /* DECORATIVE DOTS */
+    .dot-grid {
+        position: absolute; pointer-events: none; opacity: 0.15;
+    }
+    .dot-grid::before {
+        content: '';
+        display: block;
+        width: 80px; height: 80px;
+        background-image: radial-gradient(circle, var(--text-muted) 1px, transparent 1px);
+        background-size: 12px 12px;
+    }
+
+    /* ANIMATIONS */
+    .fade-up {
+        opacity: 0; transform: translateY(20px);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .nav-links { display: none; }
+        .hamburger { display: flex; }
+        .nav-links.open {
+            display: flex; flex-direction: column; position: absolute;
+            top: 100%; left: 0; right: 0; background: rgba(30,30,30,0.98);
+            padding: 20px 24px; gap: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .stat-item { border-left: none; padding-left: 0; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+        .services-grid { grid-template-columns: 1fr; }
+        .service-card:hover { transform: none; }
+        .tl-header { flex-direction: column; }
+        .skills-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+        .creds-grid { grid-template-columns: 1fr; }
+        .hero-cta { flex-direction: column; }
+        .btn { justify-content: center; width: 100%; }
+        .blob { display: none; }
+        .dot-grid { display: none; }
+        .resume-card { flex-direction: column !important; text-align: center; }
+        .resume-card > div:last-child { width: 100%; }
+        .resume-card .btn { width: 100%; }
+    }
+    @media (max-width: 480px) {
+        .skills-grid { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <div class="logo"><span>&#9670;</span> AMIN BAABOL</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#credentials">Credentials</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="dot-grid" style="top: 80px; right: 40px;"></div>
+    <div class="dot-grid" style="bottom: 30px; left: 20px;"></div>
+    <div class="container">
+        <div class="hero-status fade-up">
+            <span class="dot"></span>
+            <span>Available for Consulting</span>
+        </div>
+        <h1 class="fade-up">AMIN<br>BAABOL</h1>
+        <p class="hero-sub fade-up">I engineer secure multi-cloud data platforms that eliminate enterprise blind spots. By automating compliance workflows and building custom AI agents, I help Fortune 500 organizations turn raw security telemetry into actionable intelligence.</p>
+        <div class="hero-cta fade-up">
+            <a href="mailto:devloop198@gmail.com" class="btn btn-primary">Get in Touch</a>
+            <a href="https://linkedin.com/in/aminbaabol" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
+        </div>
+    </div>
+</section>
+
+<section class="stats-bar">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-label">Asset Visibility</div>
+                <div><span class="stat-value">100%</span><span class="stat-badge">COVERAGE</span></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Compliance</div>
+                <div><span class="stat-value">Automated</span></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Platforms</div>
+                <div><span class="stat-value">AWS</span><span class="stat-badge">/ SNOWFLAKE</span></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Integrations</div>
+                <div><span class="stat-value">9+</span><span class="stat-badge">INFRA DOMAINS</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <div class="section-label fade-up">Service Offerings</div>
+        <h2 class="section-title fade-up">What I Do</h2>
+        <p class="section-sub fade-up">End-to-end data engineering and security solutions for enterprise environments.</p>
+        <div class="services-grid fade-up">
+            <div class="service-card">
+                <div class="service-bar"></div>
+                <div class="service-card-top">
+                    <div class="service-num">Service 01</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" aria-label="Data Architecture icon"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    </div>
+                </div>
+                <div class="service-card-body">
+                    <h3>Enterprise Data Architecture & Asset Visibility</h3>
+                    <p>Eliminate security blind spots and unify your data landscape. I design multi-cloud data pipelines (AWS, Azure, Snowflake) as the single source of truth, integrating Axonius across your tech stack to discover, reconcile, and feed orphan asset telemetry into your CMDB for 100% infrastructure visibility.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">AWS</span>
+                        <span class="service-tag">Snowflake</span>
+                        <span class="service-tag">Axonius</span>
+                        <span class="service-tag">CMDB</span>
+                        <span class="service-tag">Azure</span>
+                    </div>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-bar"></div>
+                <div class="service-card-top">
+                    <div class="service-num">Service 02</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" aria-label="Compliance Automation icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                </div>
+                <div class="service-card-body">
+                    <h3>Compliance & Workflow Automation</h3>
+                    <p>The ATO process shouldn't stall your development. I architect autonomous, pre-production workflows that automatically collect evidence against security controls — whether that's Power Platform, Jira, ServiceNow, or custom-built tooling. The stack adapts to your environment; the outcome is the same: drastically reduced manual overhead and faster secure application time-to-market.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">ATO</span>
+                        <span class="service-tag">Evidence Collection</span>
+                        <span class="service-tag">Pre-Production</span>
+                        <span class="service-tag">Workflow Automation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-bar"></div>
+                <div class="service-card-top">
+                    <div class="service-num">Service 03</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" aria-label="AI and Analytics icon"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                </div>
+                <div class="service-card-body">
+                    <h3>Custom AI, Analytics & Web Applications</h3>
+                    <p>Transform complex telemetry into actionable intelligence and bespoke internal tools. I build secure, data-rich web applications with custom LLM/RAG Copilot agents, predictive ML models, and automated Tableau dashboards so executives can query risk metrics using natural language.</p>
+                    <div class="service-tags">
+                        <span class="service-tag">LLM/RAG</span>
+                        <span class="service-tag">Python</span>
+                        <span class="service-tag">Tableau</span>
+                        <span class="service-tag">ML</span>
+                        <span class="service-tag">Web Apps</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="experience" style="border-top: 1px solid var(--border);">
+    <div class="container">
+        <div class="section-label fade-up">Career Log</div>
+        <h2 class="section-title fade-up">Professional Experience</h2>
+        <p class="section-sub fade-up">A track record of delivering secure, scalable data solutions for industry leaders.</p>
+        <div class="timeline">
+            <div class="tl-item fade-up">
+                <div class="tl-header">
+                    <h3>Technical Lead (Founding Team)</h3>
+                    <span class="tl-date">Jan 2026 &mdash; Present</span>
+                </div>
+                <div class="tl-company"><strong>XcesDNA</strong> &middot; Remote</div>
+                <p>Architecting the foundational cloud infrastructure and data security strategy for an early-stage health tech DNA testing startup. Defining technical specifications and evaluating technology stacks for secure genomic data handling.</p>
+                <div class="tl-tags">
+                    <span class="tl-tag">Cloud Architecture</span>
+                    <span class="tl-tag">Data Security</span>
+                    <span class="tl-tag">Health Tech</span>
+                </div>
+            </div>
+            <div class="tl-item fade-up">
+                <div class="tl-header">
+                    <h3>Program Lead, Cyber Asset Intelligence</h3>
+                    <span class="tl-date">Apr 2024 &mdash; Present</span>
+                </div>
+                <div class="tl-company"><strong>Solventum</strong> (formerly 3M Health Information Systems) &middot; Cyber Metrics & Reporting, GRC &middot; Remote</div>
+                <p>Lead the Cyber Asset Intelligence program within the Cyber Metrics & Reporting team under GRC. Resolve critical CMDB blind spots through Axonius-driven discovery and reconciliation pipelines across 9+ infrastructure domains. Engineered a custom LLM/RAG Copilot agent for natural language security queries. Automated ATO evidence assessments with Power Platform and Jira.</p>
+                <div class="tl-tags">
+                    <span class="tl-tag">Axonius</span>
+                    <span class="tl-tag">AWS</span>
+                    <span class="tl-tag">Azure</span>
+                    <span class="tl-tag">Snowflake</span>
+                    <span class="tl-tag">LLM/RAG</span>
+                    <span class="tl-tag">Power Platform</span>
+                </div>
+            </div>
+            <div class="tl-item fade-up">
+                <div class="tl-header">
+                    <h3>Data Engineer</h3>
+                    <span class="tl-date">Sep 2021 &mdash; Apr 2024</span>
+                </div>
+                <div class="tl-company"><strong>3M</strong> &middot; Remote</div>
+                <p>Designed production data pipelines informing security risk posture for Health Information Systems. Built optimized ETL/ELT workflows for security analytics and compliance reporting. Partnered with data science teams to operationalize ML models for anomaly detection.</p>
+                <div class="tl-tags">
+                    <span class="tl-tag">Python</span>
+                    <span class="tl-tag">ETL/ELT</span>
+                    <span class="tl-tag">ML Ops</span>
+                    <span class="tl-tag">CI/CD</span>
+                </div>
+            </div>
+            <div class="tl-item fade-up">
+                <div class="tl-header">
+                    <h3>Risk Analytics Intern</h3>
+                    <span class="tl-date">May 2021 &mdash; Sep 2021</span>
+                </div>
+                <div class="tl-company"><strong>3M</strong></div>
+                <p>Developed quantitative risk models and analytics dashboards for enterprise risk management. Applied statistical analysis and machine learning to identify patterns in large-scale security datasets.</p>
+            </div>
+            <div class="tl-item fade-up">
+                <div class="tl-header">
+                    <h3>Mechanical Engineer</h3>
+                    <span class="tl-date">Jun 2018 &mdash; Aug 2019</span>
+                </div>
+                <div class="tl-company"><strong>L3Harris Technologies</strong> &middot; Melbourne, FL</div>
+                <p>Led technical analyses including design optimization studies and thermal data modeling on complex aerospace systems. Streamlined the material selection process, significantly reducing department overhead costs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" style="border-top: 1px solid var(--border);">
+    <div class="container">
+        <div class="section-label fade-up">Tech Stack</div>
+        <h2 class="section-title fade-up">Technical Skills</h2>
+        <p class="section-sub fade-up">A deep, versatile toolkit spanning security, data platforms, and AI.</p>
+        <div class="skills-grid">
+            <div class="skill-group fade-up">
+                <h3>Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">R</span>
+                    <span class="skill-tag">Scala</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">PowerShell</span>
+                    <span class="skill-tag">Bash</span>
+                </div>
+            </div>
+            <div class="skill-group fade-up">
+                <h3>Cloud</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Azure</span>
+                    <span class="skill-tag">GCP</span>
+                    <span class="skill-tag">Terraform</span>
+                    <span class="skill-tag">Docker</span>
+                </div>
+            </div>
+            <div class="skill-group fade-up">
+                <h3>Data Platforms</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Snowflake</span>
+                    <span class="skill-tag">Databricks</span>
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Spark</span>
+                    <span class="skill-tag">Kafka</span>
+                    <span class="skill-tag">Airflow</span>
+                    <span class="skill-tag">dbt</span>
+                </div>
+            </div>
+            <div class="skill-group fade-up">
+                <h3>Security</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Axonius</span>
+                    <span class="skill-tag">CMDB</span>
+                    <span class="skill-tag">CrowdStrike</span>
+                    <span class="skill-tag">Tenable</span>
+                    <span class="skill-tag">Qualys</span>
+                    <span class="skill-tag">ServiceNow</span>
+                    <span class="skill-tag">ATO</span>
+                </div>
+            </div>
+            <div class="skill-group fade-up">
+                <h3>Network & IAM</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Cisco</span>
+                    <span class="skill-tag">Palo Alto</span>
+                    <span class="skill-tag">Active Directory</span>
+                    <span class="skill-tag">Okta</span>
+                    <span class="skill-tag">Networking</span>
+                    <span class="skill-tag">Sys Admin</span>
+                </div>
+            </div>
+            <div class="skill-group fade-up">
+                <h3>Automation</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Power Apps</span>
+                    <span class="skill-tag">Power Automate</span>
+                    <span class="skill-tag">SharePoint</span>
+                    <span class="skill-tag">Jira</span>
+                </div>
+            </div>
+            <div class="skill-group fade-up">
+                <h3>AI & ML</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">LLM / RAG</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">Pandas</span>
+                </div>
+            </div>
+            <div class="skill-group fade-up">
+                <h3>Databases</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">DynamoDB</span>
+                    <span class="skill-tag">SQL Server</span>
+                    <span class="skill-tag">Redshift</span>
+                </div>
+            </div>
+            <div class="skill-group fade-up">
+                <h3>DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">Apache Airflow</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="credentials" style="border-top: 1px solid var(--border);">
+    <div class="container">
+        <div class="section-label fade-up">Credentials</div>
+        <h2 class="section-title fade-up">Education, Certifications & Honors</h2>
+        <div class="creds-grid" style="margin-top: 40px;">
+            <div class="cred-card fade-up">
+                <div class="cred-type">Degree</div>
+                <div>
+                    <h4>MS, Data Science</h4>
+                    <p>South Dakota State University &middot; ML Specialization &middot; 2019&ndash;2021</p>
+                </div>
+            </div>
+            <div class="cred-card fade-up">
+                <div class="cred-type">Degree</div>
+                <div>
+                    <h4>BS, Mechanical Engineering</h4>
+                    <p>University of North Dakota &middot; Aerospace &middot; 2016&ndash;2018</p>
+                </div>
+            </div>
+            <div class="cred-card fade-up">
+                <div class="cred-type">Cert</div>
+                <div>
+                    <h4>AWS Solutions Architect &ndash; Associate</h4>
+                    <p>Amazon Web Services</p>
+                </div>
+            </div>
+            <div class="cred-card fade-up">
+                <div class="cred-type">Cert</div>
+                <div>
+                    <h4>Back-End Development</h4>
+                    <p>Meta</p>
+                </div>
+            </div>
+            <div class="cred-card fade-up">
+                <div class="cred-type">Honor</div>
+                <div>
+                    <h4>DS4A Fellow</h4>
+                    <p>Correlation One &middot; Top 5% of 24,000 applicants &middot; 2021</p>
+                </div>
+            </div>
+            <div class="cred-card fade-up">
+                <div class="cred-type">Honor</div>
+                <div>
+                    <h4>Kaggle BIPOC Grant Fellow</h4>
+                    <p>Kaggle &middot; 2021</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="resume" style="border-top: 1px solid var(--border);">
+    <div class="container">
+        <div class="section-label fade-up">Resume</div>
+        <h2 class="section-title fade-up">Download My Resume</h2>
+        <p class="section-sub fade-up">Get the full picture — experience, skills, certifications, and more in a single document.</p>
+        <div class="resume-card fade-up" style="display: flex; align-items: center; justify-content: space-between; padding: 28px 32px; background: var(--bg-card); border: 1px solid var(--border-light); flex-wrap: wrap; gap: 20px;">
+            <div>
+                <div style="font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 4px;">Amin Baabol &mdash; Security Data Architect</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">PDF &middot; Updated March 2026</div>
+            </div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="Amin_Baabol_Resume.pdf" download class="btn btn-primary" style="padding: 10px 24px;">Download PDF</a>
+                <a href="Amin_Baabol_Resume.docx" download class="btn btn-secondary" style="padding: 10px 24px;">Download DOCX</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="section-label fade-up">Contact</div>
+        <h2 class="section-title fade-up">Let's Work Together</h2>
+        <p class="section-sub fade-up">Security data pipelines, cloud platform migrations, compliance automation &mdash; let's talk.</p>
+        <div class="contact-links fade-up">
+            <a href="mailto:devloop198@gmail.com" class="btn btn-primary">Encrypt &amp; Send</a>
+            <a href="https://linkedin.com/in/aminbaabol" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-status">
+            <span class="dot"></span>
+            <span>System Status: Optimal</span>
+        </div>
+        <div class="copy">&copy; 2026 AMIN BAABOL // ALL RIGHTS RESERVED</div>
+    </div>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Find all fade-up siblings in the same parent section
+                const parent = entry.target.parentElement;
+                const siblings = parent.querySelectorAll(':scope > .fade-up');
+                if (siblings.length > 1) {
+                    let delay = 0;
+                    siblings.forEach(sib => {
+                        if (!sib.classList.contains('visible')) {
+                            sib.style.transitionDelay = delay + 'ms';
+                            sib.classList.add('visible');
+                            delay += 100;
+                        }
+                    });
+                } else {
+                    entry.target.classList.add('visible');
+                }
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+    });
+</script>
+
+</body>
+</html>
